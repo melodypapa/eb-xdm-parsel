@@ -1,0 +1,733 @@
+<?xml version='1.0'?>
+<datamodel version="5.0"
+           xmlns="http://www.tresos.de/_projects/DataModel2/12/root.xsd"
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/12/attribute.xsd"
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd"
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar"
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd"
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd"
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd"
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Os" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Os" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_T40D53M6I1R0/Os"/>
+
+
+              <d:lst name="OsTask" type="MAP">
+                <d:ctr name="InitTask" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="true" />
+                    <d:lst name="OsTaskAppModeRef">
+                      <d:ref value="ASPath:/Os/Os/OSDEFAULTAPPMODE" type="REFERENCE"></d:ref>
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:var name="OsTaskPriority" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="NON" type="ENUMERATION"></d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /InitTask (InitTask) -->
+                <d:ctr name="Cyclic" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskSchedule" value="FULL" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:var name="OsTaskPriority" value="5" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:lst name="OsTaskResourceRef">
+                  </d:lst> <!-- /OsTaskResourceRef (OsTaskResourceRef) -->
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:lst name="OsTaskAccessingApplication">
+                    <d:ref value="ASPath:/Os/Os/App1" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskAccessingApplication (OsTaskAccessingApplication) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /Cyclic (Cyclic) -->
+                <d:ctr name="Loop" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskPriority" value="2" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="FULL" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:lst name="OsTaskResourceRef">
+                    <d:ref value="ASPath:/Os/Os/Res_LedsVar" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskResourceRef (OsTaskResourceRef) -->
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /Loop (Loop) -->
+                <d:ctr name="Task_St1" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskPriority" value="3" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="FULL" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /Task_St1 (Task_St1) -->
+                <d:ctr name="Task_St2" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskPriority" value="4" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="FULL" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /Task_St2 (Task_St2) -->
+                <d:ctr name="Bits2Led" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="EXTENDED" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskPriority" value="3" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="FULL" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:lst name="OsTaskAccessingApplication">
+                    <d:ref value="ASPath:/Os/Os/App3" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/App4" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/App5" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/App6" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskAccessingApplication (OsTaskAccessingApplication) -->
+                  <d:lst name="OsTaskEventRef">
+                    <d:ref value="ASPath:/Os/Os/WriteLEDs" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskEventRef (OsTaskEventRef) -->
+                  <d:lst name="OsTaskResourceRef">
+                    <d:ref value="ASPath:/Os/Os/Res_LedsVar" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskResourceRef (OsTaskResourceRef) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /Bits2Led (Bits2Led) -->
+                <d:ctr name="IncrementBit0" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskPriority" value="4" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="FULL" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:lst name="OsTaskAccessingApplication">
+                    <d:ref value="ASPath:/Os/Os/App2" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskAccessingApplication (OsTaskAccessingApplication) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /IncrementBit0 (IncrementBit0) -->
+                <d:ctr name="IncrementBit1" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskPriority" value="4" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="NON" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:lst name="OsTaskAccessingApplication">
+                    <d:ref value="ASPath:/Os/Os/App3" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskAccessingApplication (OsTaskAccessingApplication) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /IncrementBit1 (IncrementBit1) -->
+                <d:ctr name="IncrementBit2" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskPriority" value="4" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="FULL" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:lst name="OsTaskAccessingApplication">
+                    <d:ref value="ASPath:/Os/Os/App4" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskAccessingApplication (OsTaskAccessingApplication) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /IncrementBit2 (IncrementBit2) -->
+                <d:ctr name="IncrementBit3" type="IDENTIFIABLE">
+                  <d:var name="OsTaskType" value="BASIC" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTaskPriority" value="4" type="INTEGER"></d:var>
+                  <d:var name="OsTaskActivation" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsTaskSchedule" value="NON" type="ENUMERATION"></d:var>
+                  <d:var name="OsTaskCallScheduler" value="NO" type="ENUMERATION">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsStacksize" value="256" type="INTEGER"></d:var>
+                  <d:ctr name="OsTaskAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:lst name="OsTaskAppModeRef">
+                    </d:lst> <!-- /OsTaskAppModeRef (OsTaskAppModeRef) -->
+                  </d:ctr> <!-- /OsTaskAutostart (OsTaskAutostart) -->
+                  <d:lst name="OsTaskAccessingApplication">
+                    <d:ref value="ASPath:/Os/Os/App5" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsTaskAccessingApplication (OsTaskAccessingApplication) -->
+                  <d:var name="OsMeasure_Max_Runtime" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsTaskMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkExcludeAppRegions" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTaskMkThreadModeOverride" value="USER" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /IncrementBit3 (IncrementBit3) -->
+              </d:lst> <!-- /OsTask (OsTask) -->
+              <d:ctr name="OsOS" type="IDENTIFIABLE">
+                <d:var name="OsMicrocontroller" value="S32G399" type="ENUMERATION"></d:var>
+                <d:var name="OsStatus" value="EXTENDED" type="ENUMERATION"></d:var>
+                <d:ctr name="OsHooks" type="IDENTIFIABLE">
+                  <d:var name="OsStartupHook" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsErrorHook" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsShutdownHook" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsPreTaskHook" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsPostTaskHook" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsPreISRHook" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsPostISRHook" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsProtectionHook" value="false" type="BOOLEAN">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                </d:ctr> <!-- /OsHooks (OsHooks) -->
+                <d:var name="OsStackMonitoring" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsExtra_Runtime_Checks" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsUseGetServiceId" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsUseParameterAccess" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsServiceTrace" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsUseLastError" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsUseResScheduler" value="true" type="BOOLEAN"></d:var>
+                <d:var name="OsNumberOfCores" value="4" type="INTEGER">
+                  <a:a name="ENABLE" value="true" />
+                </d:var>
+                <d:var name="OsProtection" value="ON" type="ENUMERATION"></d:var>
+                <d:var name="OsStackOptimization" value="GLOBAL" type="ENUMERATION"></d:var>
+                <d:ctr name="OsAutosarCustomization" type="IDENTIFIABLE">
+                  <a:a name="ENABLE" value="false" />
+                  <d:var name="OsExceptionHandling" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsErrorHandling" value="AUTOSAR" type="ENUMERATION"></d:var>
+                  <d:var name="OsStrictServiceProtection" value="true" type="BOOLEAN"></d:var>
+                  <d:var name="OsCat1DirectCall" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsInterruptLockingChecks" value="AUTOSAR" type="ENUMERATION"></d:var>
+                  <d:var name="OsCallIsr" value="VIA_WRAPPER" type="ENUMERATION"></d:var>
+                  <d:var name="OsCallAppErrorHook" value="VIA_WRAPPER" type="ENUMERATION"></d:var>
+                  <d:var name="OsCallAppStartupShutdownHook" value="VIA_WRAPPER" type="ENUMERATION"></d:var>
+                  <d:var name="OsPermitSystemObjects" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsUserTaskReturn" value="KILL_TASK" type="ENUMERATION"></d:var>
+                </d:ctr> <!-- /OsAutosarCustomization (OsAutosarCustomization) -->
+                <d:var name="OsUseArti" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsTrace" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsStartupChecks" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsSourceOptimization" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsTracebuffer" value="0" type="INTEGER"></d:var>
+                <d:var name="OsSchedule" value="MIXED" type="ENUMERATION">
+                  <a:a name="ENABLE" value="false" />
+                </d:var>
+                <d:var name="OsTrappingKernel" value="true" type="BOOLEAN">
+                  <a:a name="ENABLE" value="false" />
+                </d:var>
+                <d:var name="OsGenerateSWCD" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsUseLogicalCoreIDs" value="false" type="BOOLEAN"></d:var>
+                <d:var name="OsMaxNumberOfCores" value="4" type="INTEGER"></d:var>
+                <d:var name="OsHasMemoryProtection" value="true" type="BOOLEAN"></d:var>
+                <d:var name="OsTimestampTimer" value="STM0_0" type="ENUMERATION">
+                  <a:a name="ENABLE" value="false" />
+                </d:var>
+              </d:ctr> <!-- /OsOS (OsOS) -->
+              <d:lst name="OsCounter" type="MAP">
+                <d:ctr name="HW_COUNTER" type="IDENTIFIABLE">
+                  <d:var name="OsCounterType" value="HARDWARE" type="ENUMERATION"></d:var>
+                  <d:var name="OsCounterTicksPerBase" value="1000" type="INTEGER"></d:var>
+                  <d:var name="OsCounterCORTEXMTimer" value="STM0_0" type="ENUMERATION"></d:var>
+                  <d:var name="OsCORTEXMIrqLevel" value="2" type="INTEGER"></d:var>
+                  <d:var name="OsCounterMinCycle" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsCounterMaxAllowedValue" value="4294967295" type="INTEGER"></d:var>
+                  <d:var name="OsSecondsPerTick" value="0.1" type="FLOAT">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                </d:ctr> <!-- /HW_COUNTER (HW_COUNTER) -->
+                <d:ctr name="SysCounter" type="IDENTIFIABLE">
+                  <d:var name="OsCounterType" value="SOFTWARE" type="ENUMERATION"></d:var>
+                  <d:var name="OsCounterMinCycle" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsCounterMaxAllowedValue" value="1000000" type="INTEGER"></d:var>
+                  <d:lst name="OsCounterAccessingApplication">
+                    <d:ref value="ASPath:/Os/Os/App2" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsCounterAccessingApplication (OsCounterAccessingApplication) -->
+                  <d:var name="OsCounterTicksPerBase" value="1000" type="INTEGER"></d:var>
+                  <d:var name="OsSecondsPerTick" value="0.1" type="FLOAT">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsCounterCORTEXMTimer" value="STM0_0" type="ENUMERATION"></d:var>
+                  <d:var name="OsCORTEXMIrqLevel" value="3" type="INTEGER"></d:var>
+                </d:ctr> <!-- /SysCounter (SysCounter) -->
+                <d:ctr name="SysCounter_App2" type="IDENTIFIABLE">
+                  <d:var name="OsCounterType" value="SOFTWARE" type="ENUMERATION"></d:var>
+                  <d:var name="OsCounterMinCycle" value="1" type="INTEGER"></d:var>
+                  <d:var name="OsCounterMaxAllowedValue" value="1000000" type="INTEGER"></d:var>
+                  <d:var name="OsCounterTicksPerBase" value="1000" type="INTEGER"></d:var>
+                  <d:var name="OsSecondsPerTick" value="0.1" type="FLOAT">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsCounterCORTEXMTimer" value="STM0_0" type="ENUMERATION"></d:var>
+                  <d:var name="OsCORTEXMIrqLevel" value="3" type="INTEGER"></d:var>
+                </d:ctr> <!-- /SysCounter_App2 (SysCounter_App2) -->
+              </d:lst> <!-- /OsCounter (OsCounter) -->
+              <d:lst name="OsAlarm" type="MAP">
+                <d:ctr name="SysCounterIncrementer" type="IDENTIFIABLE">
+                  <d:ctr name="OsAlarmAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="true" />
+                    <d:lst name="OsAlarmAppModeRef">
+                      <d:ref value="ASPath:/Os/Os/OSDEFAULTAPPMODE" type="REFERENCE"></d:ref>
+                    </d:lst> <!-- /OsAlarmAppModeRef (OsAlarmAppModeRef) -->
+                    <d:var name="OsAlarmAlarmTime" value="10000000" type="INTEGER"></d:var>
+                    <d:var name="OsAlarmCycleTime" value="1000000" type="INTEGER"></d:var>
+                    <d:var name="OsTimeUnit" value="NANOSECONDS" type="ENUMERATION">
+                      <a:a name="ENABLE" value="true" />
+                    </d:var>
+                    <d:var name="OsAlarmAutostartType" value="RELATIVE" type="ENUMERATION"></d:var>
+                  </d:ctr> <!-- /OsAlarmAutostart (OsAlarmAutostart) -->
+                  <d:chc name="OsAlarmAction" type="IDENTIFIABLE" value="OsAlarmIncrementCounter">
+                    <d:ctr name="OsAlarmIncrementCounter" type="IDENTIFIABLE">
+                      <d:ref name="OsAlarmIncrementCounterRef" value="ASPath:/Os/Os/SysCounter" type="REFERENCE"></d:ref>
+                    </d:ctr> <!-- /OsAlarmIncrementCounter -->
+                  </d:chc> <!-- /OsAlarmAction (OsAlarmAction, OsAlarmIncrementCounter) -->
+                  <d:ref name="OsAlarmCounterRef" value="ASPath:/Os/Os/HW_COUNTER" type="REFERENCE"></d:ref>
+                </d:ctr> <!-- /SysCounterIncrementer (SysCounterIncrementer) -->
+                <d:ctr name="SysCounterIncrementer_App2" type="IDENTIFIABLE">
+                  <d:ctr name="OsAlarmAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="true" />
+                    <d:lst name="OsAlarmAppModeRef">
+                      <d:ref value="ASPath:/Os/Os/OSDEFAULTAPPMODE" type="REFERENCE"></d:ref>
+                    </d:lst> <!-- /OsAlarmAppModeRef (OsAlarmAppModeRef) -->
+                    <d:var name="OsAlarmAlarmTime" value="10000000" type="INTEGER"></d:var>
+                    <d:var name="OsAlarmCycleTime" value="1000000" type="INTEGER"></d:var>
+                    <d:var name="OsTimeUnit" value="NANOSECONDS" type="ENUMERATION">
+                      <a:a name="ENABLE" value="true" />
+                    </d:var>
+                    <d:var name="OsAlarmAutostartType" value="RELATIVE" type="ENUMERATION"></d:var>
+                  </d:ctr> <!-- /OsAlarmAutostart (OsAlarmAutostart) -->
+                  <d:chc name="OsAlarmAction" type="IDENTIFIABLE" value="OsAlarmIncrementCounter">
+                    <d:ctr name="OsAlarmIncrementCounter" type="IDENTIFIABLE">
+                      <d:ref name="OsAlarmIncrementCounterRef" value="ASPath:/Os/Os/SysCounter_App2" type="REFERENCE"></d:ref>
+                    </d:ctr> <!-- /OsAlarmIncrementCounter -->
+                  </d:chc> <!-- /OsAlarmAction (OsAlarmAction, OsAlarmIncrementCounter) -->
+                  <d:ref name="OsAlarmCounterRef" value="ASPath:/Os/Os/HW_COUNTER" type="REFERENCE"></d:ref>
+                </d:ctr> <!-- /SysCounterIncrementer_App2 (SysCounterIncrementer_App2) -->
+                <d:ctr name="AlarmActCyclic" type="IDENTIFIABLE">
+                  <d:chc name="OsAlarmAction" type="IDENTIFIABLE" value="OsAlarmActivateTask">
+                    <d:ctr name="OsAlarmActivateTask" type="IDENTIFIABLE">
+                      <d:ref name="OsAlarmActivateTaskRef" value="ASPath:/Os/Os/Cyclic" type="REFERENCE"></d:ref>
+                    </d:ctr> <!-- /OsAlarmActivateTask -->
+                  </d:chc> <!-- /OsAlarmAction (OsAlarmAction, OsAlarmActivateTask) -->
+                  <d:ref name="OsAlarmCounterRef" value="ASPath:/Os/Os/SysCounter" type="REFERENCE"></d:ref>
+                  <d:lst name="OsAlarmAccessingApplication">
+                  </d:lst> <!-- /OsAlarmAccessingApplication (OsAlarmAccessingApplication) -->
+                  <d:ctr name="OsAlarmAutostart" type="IDENTIFIABLE">
+                    <a:a name="ENABLE" value="false" />
+                    <d:var name="OsAlarmAlarmTime" value="0" type="INTEGER"></d:var>
+                    <d:var name="OsAlarmAutostartType" value="RELATIVE" type="ENUMERATION"></d:var>
+                    <d:var name="OsAlarmCycleTime" value="0" type="INTEGER"></d:var>
+                    <d:var name="OsTimeUnit" value="TICKS" type="ENUMERATION">
+                      <a:a name="ENABLE" value="false" />
+                    </d:var>
+                  </d:ctr> <!-- /OsAlarmAutostart (OsAlarmAutostart) -->
+                </d:ctr> <!-- /AlarmActCyclic (AlarmActCyclic) -->
+              </d:lst> <!-- /OsAlarm (OsAlarm) -->
+              <d:lst name="OsAppMode" type="MAP">
+                <d:ctr name="OSDEFAULTAPPMODE" type="IDENTIFIABLE">
+                </d:ctr> <!-- /OSDEFAULTAPPMODE (OSDEFAULTAPPMODE) -->
+              </d:lst> <!-- /OsAppMode (OsAppMode) -->
+              <d:lst name="OsApplication" type="MAP">
+                <d:ctr name="App1" type="IDENTIFIABLE">
+                  <d:var name="OsApplicationCoreAssignment" value="0" type="INTEGER">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTrusted" value="true" type="BOOLEAN"></d:var>
+                  <d:ctr name="OsApplicationHooks" type="IDENTIFIABLE">
+                    <d:var name="OsAppStartupHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppErrorHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppShutdownHook" value="false" type="BOOLEAN"></d:var>
+                  </d:ctr> <!-- /OsApplicationHooks (OsApplicationHooks) -->
+                  <d:lst name="OsAppTaskRef">
+                    <d:ref value="ASPath:/Os/Os/InitTask" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/Loop" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/Bits2Led" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppTaskRef (OsAppTaskRef) -->
+                  <d:lst name="OsAppCounterRef">
+                    <d:ref value="ASPath:/Os/Os/SysCounter" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppCounterRef (OsAppCounterRef) -->
+                  <d:lst name="OsAppAlarmRef">
+                    <d:ref value="ASPath:/Os/Os/AlarmActCyclic" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppAlarmRef (OsAppAlarmRef) -->
+                  <d:lst name="OsAppResourceRef">
+                    <d:ref value="ASPath:/Os/Os/Res_LedsVar" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppResourceRef (OsAppResourceRef) -->
+                  <d:var name="OsTrustedApplicationWithProtection" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTrustedApplicationDelayTimingViolationCall" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownOS" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownAllCores" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                </d:ctr> <!-- /App1 (App1) -->
+                <d:ctr name="App2" type="IDENTIFIABLE">
+                  <d:var name="OsApplicationCoreAssignment" value="1" type="INTEGER">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTrusted" value="true" type="BOOLEAN"></d:var>
+                  <d:ctr name="OsApplicationHooks" type="IDENTIFIABLE">
+                    <d:var name="OsAppStartupHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppErrorHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppShutdownHook" value="false" type="BOOLEAN"></d:var>
+                  </d:ctr> <!-- /OsApplicationHooks (OsApplicationHooks) -->
+                  <d:lst name="OsAppCounterRef">
+                    <d:ref value="ASPath:/Os/Os/HW_COUNTER" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/SysCounter_App2" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppCounterRef (OsAppCounterRef) -->
+                  <d:lst name="OsAppAlarmRef">
+                    <d:ref value="ASPath:/Os/Os/SysCounterIncrementer" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/SysCounterIncrementer_App2" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppAlarmRef (OsAppAlarmRef) -->
+                  <d:lst name="OsAppTaskRef">
+                    <d:ref value="ASPath:/Os/Os/Task_St1" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/Task_St2" type="REFERENCE"></d:ref>
+                    <d:ref value="ASPath:/Os/Os/Cyclic" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppTaskRef (OsAppTaskRef) -->
+                  <d:lst name="OsAppScheduleTableRef">
+                    <d:ref value="ASPath:/Os/Os/St1" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppScheduleTableRef (OsAppScheduleTableRef) -->
+                  <d:lst name="OsAppIsrRef">
+                  </d:lst> <!-- /OsAppIsrRef (OsAppIsrRef) -->
+                  <d:lst name="OsAppResourceRef">
+                  </d:lst> <!-- /OsAppResourceRef (OsAppResourceRef) -->
+                  <d:lst name="OsApplicationTrustedFunction" type="MAP">
+                  </d:lst> <!-- /OsApplicationTrustedFunction (OsApplicationTrustedFunction) -->
+                  <d:var name="OsTrustedApplicationWithProtection" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTrustedApplicationDelayTimingViolationCall" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownOS" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownAllCores" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                </d:ctr> <!-- /App2 (App2) -->
+                <d:ctr name="App3" type="IDENTIFIABLE">
+                  <d:var name="OsApplicationCoreAssignment" value="2" type="INTEGER">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTrusted" value="true" type="BOOLEAN"></d:var>
+                  <d:ctr name="OsApplicationHooks" type="IDENTIFIABLE">
+                    <d:var name="OsAppStartupHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppErrorHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppShutdownHook" value="false" type="BOOLEAN"></d:var>
+                  </d:ctr> <!-- /OsApplicationHooks (OsApplicationHooks) -->
+                  <d:lst name="OsAppCounterRef">
+                  </d:lst> <!-- /OsAppCounterRef (OsAppCounterRef) -->
+                  <d:lst name="OsAppAlarmRef">
+                  </d:lst> <!-- /OsAppAlarmRef (OsAppAlarmRef) -->
+                  <d:lst name="OsAppTaskRef">
+                    <d:ref value="ASPath:/Os/Os/IncrementBit0" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppTaskRef (OsAppTaskRef) -->
+                  <d:lst name="OsAppScheduleTableRef">
+                  </d:lst> <!-- /OsAppScheduleTableRef (OsAppScheduleTableRef) -->
+                  <d:lst name="OsAppIsrRef">
+                  </d:lst> <!-- /OsAppIsrRef (OsAppIsrRef) -->
+                  <d:lst name="OsAppResourceRef">
+                  </d:lst> <!-- /OsAppResourceRef (OsAppResourceRef) -->
+                  <d:lst name="OsApplicationTrustedFunction" type="MAP">
+                  </d:lst> <!-- /OsApplicationTrustedFunction (OsApplicationTrustedFunction) -->
+                  <d:var name="OsTrustedApplicationWithProtection" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTrustedApplicationDelayTimingViolationCall" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownOS" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownAllCores" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                </d:ctr> <!-- /App3 (App3) -->
+                <d:ctr name="App4" type="IDENTIFIABLE">
+                  <d:var name="OsApplicationCoreAssignment" value="3" type="INTEGER">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTrusted" value="true" type="BOOLEAN"></d:var>
+                  <d:ctr name="OsApplicationHooks" type="IDENTIFIABLE">
+                    <d:var name="OsAppStartupHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppErrorHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppShutdownHook" value="false" type="BOOLEAN"></d:var>
+                  </d:ctr> <!-- /OsApplicationHooks (OsApplicationHooks) -->
+                  <d:lst name="OsAppCounterRef">
+                  </d:lst> <!-- /OsAppCounterRef (OsAppCounterRef) -->
+                  <d:lst name="OsAppAlarmRef">
+                  </d:lst> <!-- /OsAppAlarmRef (OsAppAlarmRef) -->
+                  <d:lst name="OsAppTaskRef">
+                    <d:ref value="ASPath:/Os/Os/IncrementBit1" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppTaskRef (OsAppTaskRef) -->
+                  <d:lst name="OsAppScheduleTableRef">
+                  </d:lst> <!-- /OsAppScheduleTableRef (OsAppScheduleTableRef) -->
+                  <d:lst name="OsAppIsrRef">
+                  </d:lst> <!-- /OsAppIsrRef (OsAppIsrRef) -->
+                  <d:lst name="OsAppResourceRef">
+                  </d:lst> <!-- /OsAppResourceRef (OsAppResourceRef) -->
+                  <d:lst name="OsApplicationTrustedFunction" type="MAP">
+                  </d:lst> <!-- /OsApplicationTrustedFunction (OsApplicationTrustedFunction) -->
+                  <d:var name="OsTrustedApplicationWithProtection" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTrustedApplicationDelayTimingViolationCall" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownOS" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownAllCores" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                </d:ctr> <!-- /App4 (App4) -->
+                <d:ctr name="App5" type="IDENTIFIABLE">
+                  <d:var name="OsApplicationCoreAssignment" value="0" type="INTEGER">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTrusted" value="true" type="BOOLEAN"></d:var>
+                  <d:ctr name="OsApplicationHooks" type="IDENTIFIABLE">
+                    <d:var name="OsAppStartupHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppErrorHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppShutdownHook" value="false" type="BOOLEAN"></d:var>
+                  </d:ctr> <!-- /OsApplicationHooks (OsApplicationHooks) -->
+                  <d:lst name="OsAppCounterRef">
+                  </d:lst> <!-- /OsAppCounterRef (OsAppCounterRef) -->
+                  <d:lst name="OsAppAlarmRef">
+                  </d:lst> <!-- /OsAppAlarmRef (OsAppAlarmRef) -->
+                  <d:lst name="OsAppTaskRef">
+                    <d:ref value="ASPath:/Os/Os/IncrementBit2" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppTaskRef (OsAppTaskRef) -->
+                  <d:lst name="OsAppScheduleTableRef">
+                  </d:lst> <!-- /OsAppScheduleTableRef (OsAppScheduleTableRef) -->
+                  <d:lst name="OsAppIsrRef">
+                  </d:lst> <!-- /OsAppIsrRef (OsAppIsrRef) -->
+                  <d:lst name="OsAppResourceRef">
+                  </d:lst> <!-- /OsAppResourceRef (OsAppResourceRef) -->
+                  <d:lst name="OsApplicationTrustedFunction" type="MAP">
+                  </d:lst> <!-- /OsApplicationTrustedFunction (OsApplicationTrustedFunction) -->
+                  <d:var name="OsTrustedApplicationWithProtection" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTrustedApplicationDelayTimingViolationCall" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownOS" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownAllCores" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                </d:ctr> <!-- /App5 (App5) -->
+                <d:ctr name="App6" type="IDENTIFIABLE">
+                  <d:var name="OsApplicationCoreAssignment" value="1" type="INTEGER">
+                    <a:a name="ENABLE" value="true" />
+                  </d:var>
+                  <d:var name="OsTrusted" value="true" type="BOOLEAN"></d:var>
+                  <d:ctr name="OsApplicationHooks" type="IDENTIFIABLE">
+                    <d:var name="OsAppStartupHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppErrorHook" value="false" type="BOOLEAN"></d:var>
+                    <d:var name="OsAppShutdownHook" value="false" type="BOOLEAN"></d:var>
+                  </d:ctr> <!-- /OsApplicationHooks (OsApplicationHooks) -->
+                  <d:lst name="OsAppCounterRef">
+                  </d:lst> <!-- /OsAppCounterRef (OsAppCounterRef) -->
+                  <d:lst name="OsAppAlarmRef">
+                  </d:lst> <!-- /OsAppAlarmRef (OsAppAlarmRef) -->
+                  <d:lst name="OsAppTaskRef">
+                    <d:ref value="ASPath:/Os/Os/IncrementBit3" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsAppTaskRef (OsAppTaskRef) -->
+                  <d:lst name="OsAppScheduleTableRef">
+                  </d:lst> <!-- /OsAppScheduleTableRef (OsAppScheduleTableRef) -->
+                  <d:lst name="OsAppIsrRef">
+                  </d:lst> <!-- /OsAppIsrRef (OsAppIsrRef) -->
+                  <d:lst name="OsAppResourceRef">
+                  </d:lst> <!-- /OsAppResourceRef (OsAppResourceRef) -->
+                  <d:lst name="OsApplicationTrustedFunction" type="MAP">
+                  </d:lst> <!-- /OsApplicationTrustedFunction (OsApplicationTrustedFunction) -->
+                  <d:var name="OsTrustedApplicationWithProtection" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsTrustedApplicationDelayTimingViolationCall" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownOS" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkPermitShutdownAllCores" value="false" type="BOOLEAN"></d:var>
+                  <d:var name="OsAppMkCreateMemoryRegion" value="true" type="BOOLEAN"></d:var>
+                </d:ctr> <!-- /App6 (App6) -->
+              </d:lst> <!-- /OsApplication (OsApplication) -->
+              <d:lst name="OsScheduleTable" type="MAP">
+                <d:ctr name="St1" type="IDENTIFIABLE">
+                  <d:ref name="OsScheduleTableCounterRef" value="ASPath:/Os/Os/SysCounter_App2" type="REFERENCE"></d:ref>
+                  <d:var name="OsScheduleTableDuration" value="500" type="INTEGER"></d:var>
+                  <d:var name="OsScheduleTableRepeating" value="true" type="BOOLEAN"></d:var>
+                  <d:lst name="OsScheduleTableExpiryPoint" type="MAP">
+                    <d:ctr name="OsScheduleTableExpiryPoint1" type="IDENTIFIABLE">
+                      <d:var name="OsScheduleTblExpPointOffset" value="100" type="INTEGER"></d:var>
+                      <d:lst name="OsScheduleTableTaskActivation" type="MAP">
+                        <d:ctr name="OsScheduleTableTaskActivation1" type="IDENTIFIABLE">
+                          <d:ref name="OsScheduleTableActivateTaskRef" value="ASPath:/Os/Os/Task_St1" type="REFERENCE"></d:ref>
+                        </d:ctr> <!-- /OsScheduleTableTaskActivation1 (OsScheduleTableTaskActivation1) -->
+                      </d:lst> <!-- /OsScheduleTableTaskActivation (OsScheduleTableTaskActivation) -->
+                      <d:lst name="OsScheduleTableEventSetting" type="MAP">
+                      </d:lst> <!-- /OsScheduleTableEventSetting (OsScheduleTableEventSetting) -->
+                    </d:ctr> <!-- /OsScheduleTableExpiryPoint1 (OsScheduleTableExpiryPoint1) -->
+                    <d:ctr name="OsScheduleTableExpiryPoint2" type="IDENTIFIABLE">
+                      <d:var name="OsScheduleTblExpPointOffset" value="200" type="INTEGER"></d:var>
+                      <d:lst name="OsScheduleTableTaskActivation" type="MAP">
+                        <d:ctr name="OsScheduleTableTaskActivation2" type="IDENTIFIABLE">
+                          <d:ref name="OsScheduleTableActivateTaskRef" value="ASPath:/Os/Os/Task_St2" type="REFERENCE"></d:ref>
+                        </d:ctr> <!-- /OsScheduleTableTaskActivation2 (OsScheduleTableTaskActivation2) -->
+                      </d:lst> <!-- /OsScheduleTableTaskActivation (OsScheduleTableTaskActivation) -->
+                      <d:lst name="OsScheduleTableEventSetting" type="MAP">
+                      </d:lst> <!-- /OsScheduleTableEventSetting (OsScheduleTableEventSetting) -->
+                    </d:ctr> <!-- /OsScheduleTableExpiryPoint2 (OsScheduleTableExpiryPoint2) -->
+                    <d:ctr name="OsScheduleTableExpiryPoint3" type="IDENTIFIABLE">
+                      <d:var name="OsScheduleTblExpPointOffset" value="400" type="INTEGER"></d:var>
+                      <d:lst name="OsScheduleTableTaskActivation" type="MAP">
+                        <d:ctr name="OsScheduleTableTaskActivation3" type="IDENTIFIABLE">
+                          <d:ref name="OsScheduleTableActivateTaskRef" value="ASPath:/Os/Os/Task_St1" type="REFERENCE"></d:ref>
+                        </d:ctr> <!-- /OsScheduleTableTaskActivation3 (OsScheduleTableTaskActivation3) -->
+                      </d:lst> <!-- /OsScheduleTableTaskActivation (OsScheduleTableTaskActivation) -->
+                      <d:lst name="OsScheduleTableEventSetting" type="MAP">
+                      </d:lst> <!-- /OsScheduleTableEventSetting (OsScheduleTableEventSetting) -->
+                    </d:ctr> <!-- /OsScheduleTableExpiryPoint3 (OsScheduleTableExpiryPoint3) -->
+                  </d:lst> <!-- /OsScheduleTableExpiryPoint (OsScheduleTableExpiryPoint) -->
+                  <d:lst name="OsSchTblAccessingApplication">
+                    <d:ref value="ASPath:/Os/Os/App1" type="REFERENCE"></d:ref>
+                  </d:lst> <!-- /OsSchTblAccessingApplication (OsSchTblAccessingApplication) -->
+                  <d:var name="OsTimeUnit" value="TICKS" type="ENUMERATION">
+                    <a:a name="ENABLE" value="false" />
+                  </d:var>
+                  <d:var name="OsScheduleTableIsSimple" value="false" type="BOOLEAN"></d:var>
+                </d:ctr> <!-- /St1 (St1) -->
+              </d:lst> <!-- /OsScheduleTable (OsScheduleTable) -->
+              <d:lst name="OsResource" type="MAP">
+                <d:ctr name="Res_LedsVar" type="IDENTIFIABLE">
+                  <d:var name="OsResourceProperty" value="STANDARD" type="ENUMERATION"></d:var>
+                  <d:lst name="OsResourceAccessingApplication">
+                  </d:lst> <!-- /OsResourceAccessingApplication (OsResourceAccessingApplication) -->
+                  <d:ref name="OsResourceLinkedResourceRef" value="ASPath:/Os/Os/None" type="REFERENCE">
+                    <a:a name="ENABLE" value="false" />
+                  </d:ref>
+                </d:ctr> <!-- /Res_LedsVar (Res_LedsVar) -->
+              </d:lst> <!-- /OsResource (OsResource) -->
+              <d:lst name="OsEvent" type="MAP">
+                <d:ctr name="WriteLEDs" type="IDENTIFIABLE">
+                </d:ctr> <!-- /WriteLEDs (WriteLEDs) -->
+              </d:lst> <!-- /OsEvent (OsEvent) -->
+              <d:lst name="OsSpinlock" type="MAP">
+              </d:lst> <!-- /OsSpinlock (OsSpinlock) -->
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>
