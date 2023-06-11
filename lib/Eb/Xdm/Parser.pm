@@ -4,6 +4,8 @@ use 5.006;
 use strict;
 use warnings;
 
+use XML::LibXML;
+
 =head1 NAME
 
 Eb::Xdm::Parser - The great new Eb::Xdm::Parser!
@@ -35,19 +37,14 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 function1
+=head2 tbd
 
 =cut
 
-sub function1 {
-}
 
-=head2 function2
+=head2 tbd
 
 =cut
-
-sub function2 {
-}
 
 =head1 AUTHOR
 

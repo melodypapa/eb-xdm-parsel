@@ -1,4 +1,9 @@
+bin/eb-xdm-parser
+bin/eb-xdm-parser.pl
 Changes
+data/Os.xdm
+lib/Eb/Os.pm
+lib/Eb/AbstractObject.pm
 lib/Eb/Xdm/Parser.pm
 LICENSE
 Makefile.PL

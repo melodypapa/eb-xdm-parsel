@@ -6,8 +6,7 @@ use ExtUtils::MakeMaker;
 my %WriteMakefileArgs = (
     NAME             => 'Eb::Xdm::Parser',
     AUTHOR           => q{Melodypapa <melodypapa@outlook.com>},
-    VERSION_FROM     => 'lib/Eb/Xdm/Parser.pm',
-    ABSTRACT_FROM    => 'lib/Eb/Xdm/Parser.pm',
+    #VERSION_FROM     => 'lib/Eb/Xdm/Parser.pm',
     LICENSE          => 'mit',
     MIN_PERL_VERSION => '5.006',
     CONFIGURE_REQUIRES => {
@@ -20,6 +19,9 @@ my %WriteMakefileArgs = (
         #'ABC'              => '1.6',
         #'Foo::Bar::Module' => '5.0401',
     },
+    "EXE_FILES" => [
+        "bin/eb-xdm-parser.pl"
+    ],
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Eb-Xdm-Parser-*' },
 );
